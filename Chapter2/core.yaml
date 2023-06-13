@@ -330,8 +330,9 @@ Resources:
           -  Effect: Allow
              Action:
                - sts:AssumeRole
+             # Uses cloud_user - sandbox in ACG
              Principal:
-               AWS: !Join [":", [ "arn:aws:iam:", !Ref "AWS::AccountId", "user/Admin" ] ]
+               AWS: !Join [":", [ "arn:aws:iam:", !Ref "AWS::AccountId", "user/cloud_user" ] ]
       ManagedPolicyArns:
         - "arn:aws:iam::aws:policy/AdministratorAccess"
       Tags:

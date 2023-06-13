@@ -9,13 +9,14 @@ Resources:
         Statement:
           - Sid: AllowAssumeRole
             Effect: Allow
+            # Using cloud_user (from AWS sandbox in ACG)
             Principal:
               AWS:
                 - !Join
                   - ""
                   - - "arn:aws:iam::"
                     - !Ref "AWS::AccountId"
-                    - ":user/Admin"
+                    - ":user/cloud_user"
             Action: "sts:AssumeRole"
       ManagedPolicyArns:
         - "arn:aws:iam::aws:policy/AmazonEC2FullAccess"
